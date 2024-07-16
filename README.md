@@ -90,7 +90,7 @@ and
 			}
 ```
 
-You'll then find another switch at line 165 in the original file:
+You'll then find another switch at line 165 in the original file (now line 195):
 ```javascript
 //adjust values based on valueControl Behaviour
 			switch (v) {
