@@ -71,7 +71,7 @@ export function addValueControlWidgets(node, targetWidget, defaultValue = "rando
 		defaultValue,
 		function () {},
 		{
-			values: ["fixed", "increment", "decrement", "randomize"],
+			values: ["fixed", "increment", "increment x5", "increment x10", "increment x20", "increment x25", "increment x50", "decrement", "decrement x5", "decrement x10", "decrement x20", "decrement x25", "decrement x50", "randomize"],
 			serialize: false, // Don't include this in prompt.
 		}
 	);
@@ -131,6 +131,21 @@ export function addValueControlWidgets(node, targetWidget, defaultValue = "rando
 				case "increment":
 					current_index += 1;
 					break;
+				case "increment x5":
+					current_index += 5;
+					break;
+				case "increment x10":
+					current_index += 10;
+					break;
+				case "increment x20":
+					current_index += 20;
+					break;
+				case "increment x25":
+					current_index += 25;
+					break;
+				case "increment x50":
+					current_index += 50;
+					break;
 				case "increment-wrap":
 					current_index += 1;
 					if ( current_index >= current_length ) {
@@ -139,6 +154,21 @@ export function addValueControlWidgets(node, targetWidget, defaultValue = "rando
 					break;
 				case "decrement":
 					current_index -= 1;
+					break;
+				case "decrement x5":
+					current_index -= 5;
+					break;
+				case "decrement x10":
+					current_index -= 10;
+					break;
+				case "decrement x20":
+					current_index -= 20;
+					break;
+				case "decrement x25":
+					current_index -= 25;
+					break;
+				case "decrement x50":
+					current_index -= 50;
 					break;
 				case "randomize":
 					current_index = Math.floor(Math.random() * current_length);
@@ -168,8 +198,38 @@ export function addValueControlWidgets(node, targetWidget, defaultValue = "rando
 				case "increment":
 					targetWidget.value += targetWidget.options.step / 10;
 					break;
+				case "increment x5":
+					targetWidget.value += targetWidget.options.step / 2;
+					break;
+				case "increment x10":
+					targetWidget.value += targetWidget.options.step;
+					break;
+				case "increment x20":
+					targetWidget.value += targetWidget.options.step * 2;
+					break;
+				case "increment x25":
+					targetWidget.value += targetWidget.options.step * 2.5;
+					break;
+				case "increment x50":
+					targetWidget.value += targetWidget.options.step * 5;
+					break;
 				case "decrement":
 					targetWidget.value -= targetWidget.options.step / 10;
+					break;
+				case "decrement x5":
+					targetWidget.value -= targetWidget.options.step / 2;
+					break;
+				case "decrement x10":
+					targetWidget.value -= targetWidget.options.step;
+					break;
+				case "decrement x20":
+					targetWidget.value -= targetWidget.options.step * 2;
+					break;
+				case "decrement x25":
+					targetWidget.value -= targetWidget.options.step * 2.5;
+					break;
+				case "decrement x50":
+					targetWidget.value -= targetWidget.options.step * 5;
 					break;
 				case "randomize":
 					targetWidget.value = Math.floor(Math.random() * range) * (targetWidget.options.step / 10) + min;
